@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/firebase";
+import { sendConfirmationEmail } from "@/lib/mailer";
 import { collection, addDoc, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
 
 export async function POST(req: Request) {
@@ -17,6 +18,9 @@ export async function POST(req: Request) {
       course,
       createdAt: Timestamp.now(),
     });
+
+    // Send Configuration email
+    await sendConfirmationEmail(email, name, course);
 
     return NextResponse.json({ message: "Successfully registered!", id: docRef.id }, { status: 201 });
   } catch (error) {
