@@ -11,10 +11,6 @@ import WaitlistForm from "./components/WaitlistForm";
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="font-sans text-gray-900">
       <Header />

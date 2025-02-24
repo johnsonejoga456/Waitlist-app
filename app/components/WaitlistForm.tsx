@@ -27,7 +27,7 @@ const WaitlistForm = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
     try {
       const response = await axios.post("/api/waitlist", formData);
       setMessage(response.data.message);
-    } catch (error) {
+    } catch {
       setMessage("Failed to register. Please try again.");
     } finally {
       setLoading(false);
