@@ -83,27 +83,38 @@ export default function HomePage() {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
           Explore a variety of courses designed to help you upskill and grow.
         </p>
-        
+
         {/* Course Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-10">
           {courses.map((course) => (
-            <div key={course.id} className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-2xl font-semibold text-gray-700">{course.title}</h3>
-              <p className="text-gray-600 my-3">{course.description}</p>
-              <ul className="text-left text-gray-600">
-                {course.features.map((feature, index) => (
-                  <li key={index} className="flex items-center">
-                    ✅ <span className="ml-2">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-gray-500 mt-3">⏳ {course.duration}</p>
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-              >
-                Join the Waitlist
-              </button>
+            <div
+              key={course.id}
+              className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+            >
+              {/* Card Header */}
+              <div className="bg-blue-600 text-white text-left p-6">
+                <h3 className="text-2xl font-semibold">{course.title}</h3>
+                <p className="text-sm mt-2">⏳ {course.duration}</p>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">{course.description}</p>
+                <ul className="text-left text-gray-600 space-y-2">
+                  {course.features.map((feature, index) => (
+                    <li key={index} className="flex items-center">
+                      <span className="text-green-500">✔️</span>
+                      <span className="ml-2">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                >
+                  Join the Waitlist
+                </button>
+              </div>
             </div>
           ))}
         </div>
