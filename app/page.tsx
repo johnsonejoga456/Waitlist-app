@@ -25,6 +25,41 @@ const courses = [
     features: ["Figma & Adobe XD", "Wireframing & Prototyping", "Usability Testing"],
     duration: "8 Weeks",
   },
+  {
+    id: 4,
+    title: "Cybersecurity Essentials",
+    description: "Learn how to protect systems and networks from cyber threats.",
+    features: ["Ethical Hacking", "Network Security", "Incident Response"],
+    duration: "10 Weeks",
+  },
+  {
+    id: 5,
+    title: "Cloud Computing with AWS and Azure",
+    description: "Master cloud services, deployments, and infrastructure management.",
+    features: ["AWS & Azure Platforms", "Serverless Computing", "Scalable Deployments"],
+    duration: "8 Weeks",
+  },
+  {
+    id: 6,
+    title: "Mobile App Development",
+    description: "Build cross-platform mobile apps with modern tools and frameworks.",
+    features: ["React Native & Flutter", "UI/UX for Mobile", "App Store Deployment"],
+    duration: "10 Weeks",
+  },
+  {
+    id: 7,
+    title: "Blockchain Development",
+    description: "Dive into blockchain networks and create decentralized applications (DApps).",
+    features: ["Solidity, Ethereum, Hyperledger", "Smart Contracts", "Web3 Integration"],
+    duration: "12 Weeks",
+  },
+  {
+    id: 8,
+    title: "Artificial Intelligence Foundations",
+    description: "Explore the basics of AI, neural networks, and deep learning.",
+    features: ["TensorFlow & PyTorch", "AI Problem Solving", "Build Simple AI Models"],
+    duration: "9 Weeks",
+  },
 ];
 
 export default function HomePage() {
