@@ -3,6 +3,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
+const courses = [
+  { id: 1, title: "Full-Stack Web Development" },
+  { id: 2, title: "Data Science & Machine Learning" },
+  { id: 3, title: "UI/UX Design Fundamentals" },
+  { id: 4, title: "Cybersecurity Essentials" },
+  { id: 5, title: "Cloud Computing with AWS and Azure" },
+  { id: 6, title: "Mobile App Development" },
+  { id: 7, title: "Blockchain Development" },
+  { id: 8, title: "Artificial Intelligence Foundations" },
+];
+
 const WaitlistForm = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const [formData, setFormData] = useState({ name: "", email: "", course: "" });
   const [loading, setLoading] = useState(false);
@@ -54,6 +66,7 @@ const WaitlistForm = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Full Name Input */}
           <div>
             <label className="block text-gray-700 font-medium">Full Name</label>
             <input
@@ -62,11 +75,12 @@ const WaitlistForm = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
               placeholder="Enter your full name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-900"
               required
             />
           </div>
 
+          {/* Email Input */}
           <div>
             <label className="block text-gray-700 font-medium">Email Address</label>
             <input
@@ -75,27 +89,36 @@ const WaitlistForm = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-900"
               required
             />
           </div>
 
-          <div>
+          {/* Course Selection Dropdown */}
+          <div className="relative">
             <label className="block text-gray-700 font-medium">Preferred Course</label>
             <select
               name="course"
               value={formData.course}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-900 appearance-none"
               required
             >
               <option value="" disabled>Select your course</option>
-              <option value="web-development">Web Development</option>
-              <option value="data-science">Data Science</option>
-              <option value="cybersecurity">Cybersecurity</option>
+              {courses.map((course) => (
+                <option key={course.id} value={course.title}>
+                  {course.title}
+                </option>
+              ))}
             </select>
+
+            {/* Arrow Icon to fix overflow issue */}
+            <div className="absolute right-3 top-10 text-gray-500 pointer-events-none">
+              ▼
+            </div>
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white p-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300"
