@@ -12,8 +12,8 @@ export default function Hero({ openModal }: { openModal: () => void }) {
 
       {/* Content */}
       <div className="relative z-10">
-        <h1 className="text-5xl font-bold mb-6">Welcome to Our Course Waitlist</h1>
-        <p className="text-lg max-w-lg mb-4 md:text-xl md:max-w-2xl">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Our Course Waitlist</h1>
+        <p className="text-md md:text-lg max-w-lg mb-4 md:text-xl md:max-w-2xl">
           Join the Waitlist now to get notified when enrollment opens for our next cohort!
         </p>
         <button
