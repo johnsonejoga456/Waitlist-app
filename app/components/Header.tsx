@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +29,8 @@ export default function Header() {
           Course<span className="text-yellow-300">Waitlist</span>
         </h1>
 
-        {/* Navigation */}
-        <nav className="flex gap-8 text-lg font-semibold text-white">
+        {/* Navigation for Desktop */}
+        <nav className="hidden md:flex gap-8 text-lg font-semibold text-white">
           {["courses", "about", "contact"].map((section) => (
             <button
               key={section}
@@ -40,7 +41,33 @@ export default function Header() {
             </button>
           ))}
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "Close" : "Menu"}
+        </button>
       </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <nav className="md:hidden bg-blue-600 text-white flex flex-col items-center">
+          {["courses", "about", "contact"].map((section) => (
+            <button
+              key={section}
+              onClick={() => {
+                scrollToSection(section);
+                setIsOpen(false); // Close menu after selection
+              }}
+              className="py-4 border-b border-white transition-all duration-300 hover:bg-blue-700 w-full text-left"
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
