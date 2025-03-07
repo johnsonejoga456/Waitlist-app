@@ -83,34 +83,4 @@ Frontend (Vercel Deployment)
    ```
 3. Deploy Firebase Functions:  
    ```sh
-   firebase deploy --only functions
-   ```
 
----
-
-## ❓ Troubleshooting  
-
-❌ *Next.js not found?*  
-   - Run `npm install next react react-dom`  
-
-❌ *Deployment taking too long?*  
-   - Ensure dependencies are installed correctly.  
-   - Restart Vercel build.  
-
-❌ *Emails not being sent?*  
-   - Check SendGrid API key.  
-   - Verify Firebase Function logs.  
-
----
-
-## 📜 License  
-This project is open-source under the [MIT License](LICENSE).
-
----
-```
-
----
-
-### **Next Steps**
-- I'll save this as a `README.md` file for you.  
-- Do you need any modifications before I finalize it? 🚀
