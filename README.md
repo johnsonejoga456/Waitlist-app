@@ -57,12 +57,7 @@ Email Notification System
 
 After a user joins the waitlist, they receive a confirmation email via Nodemailer. The email template is located in:  
 
-firebase/functions/mailer.js
-
-Email Example  
-Subject: Welcome to the Waitlist!
-Hello
-You've successfully joined the waitlist for. We'll notify you when spots open up.  
+firebase/functions/mailer.js 
 
 Deployment Guide  
 
